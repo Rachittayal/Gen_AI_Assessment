@@ -1,0 +1,15 @@
+[project]
+name = "rag-pipeline"
+version = "1.0.0"
+description = "Semantic RAG pipeline comparing raw vector search vs AI-enhanced retrieval"
+requires-python = ">=3.11"
+
+dependencies = [
+    "sentence-transformers",
+    "faiss-cpu",
+    "numpy",
+    "pytest",
+]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

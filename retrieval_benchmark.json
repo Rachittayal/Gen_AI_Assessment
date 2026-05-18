@@ -1,0 +1,145 @@
+{
+  "generated_at": "2026-05-16T22:59:46",
+  "top_k": 3,
+  "results": [
+    {
+      "query": "How does the system handle peak load?",
+      "strategy_a": {
+        "results": [
+          {
+            "id": "doc_01",
+            "score": 0.734,
+            "text": "Peak load handling is managed through a combination of horizontal scaling and autoscaling policies. When incoming traffic exceeds a defined threshold, the orchestration layer automatically provisions additional compute instances. Load balancers distribute requests evenly across all active nodes, and a circuit breaker pattern prevents any single service from becoming overwhelmed."
+          },
+          {
+            "id": "doc_04",
+            "score": 0.3561,
+            "text": "Caching is a technique for storing frequently accessed data in fast memory so it does not need to be recomputed or fetched from a slow backend on every request. Common caching strategies include LRU (Least Recently Used) eviction, TTL-based expiry, and write-through caching. A well-tuned cache can reduce database load by over 80 percent and bring response times down from hundreds of milliseconds to single-digit milliseconds."
+          },
+          {
+            "id": "doc_08",
+            "score": 0.3164,
+            "text": "Message queues decouple producers and consumers in a distributed system. The producer places a message on the queue and continues without waiting for a response. The consumer reads from the queue at its own pace. This pattern smooths out traffic spikes: even if ten thousand events arrive in one second, the consumer processes them steadily without dropping any. RabbitMQ, Kafka, and Google Pub/Sub are common message queue systems."
+          }
+        ]
+      },
+      "strategy_b": {
+        "expanded_query": "autoscaling load balancing high traffic horizontal scaling traffic spike",
+        "results": [
+          {
+            "id": "doc_01",
+            "score": 0.644,
+            "text": "Peak load handling is managed through a combination of horizontal scaling and autoscaling policies. When incoming traffic exceeds a defined threshold, the orchestration layer automatically provisions additional compute instances. Load balancers distribute requests evenly across all active nodes, and a circuit breaker pattern prevents any single service from becoming overwhelmed."
+          },
+          {
+            "id": "doc_08",
+            "score": 0.3242,
+            "text": "Message queues decouple producers and consumers in a distributed system. The producer places a message on the queue and continues without waiting for a response. The consumer reads from the queue at its own pace. This pattern smooths out traffic spikes: even if ten thousand events arrive in one second, the consumer processes them steadily without dropping any. RabbitMQ, Kafka, and Google Pub/Sub are common message queue systems."
+          },
+          {
+            "id": "doc_06",
+            "score": 0.2697,
+            "text": "Rate limiting protects backend services from being overwhelmed by too many requests in a short period of time. The token bucket algorithm allows short bursts of traffic while enforcing an average rate limit over time. When a client exceeds the limit, the API gateway returns a 429 status code. Rate limits are typically applied per API key or per IP address and are configured separately for each endpoint."
+          }
+        ]
+      },
+      "overlap": [
+        "doc_01",
+        "doc_08"
+      ]
+    },
+    {
+      "query": "What similarity metric is used for vector search?",
+      "strategy_a": {
+        "results": [
+          {
+            "id": "doc_05",
+            "score": 0.6154,
+            "text": "The FAISS library (Facebook AI Similarity Search) provides efficient algorithms for searching large collections of dense vectors. It supports both exact and approximate nearest-neighbour search. The IndexFlatIP index performs exact inner product search, while IndexIVFFlat partitions the space into clusters for faster approximate search. For most RAG applications with under one million vectors, IndexFlatL2 or IndexFlatIP gives acceptable speed with perfect recall."
+          },
+          {
+            "id": "doc_02",
+            "score": 0.5865,
+            "text": "Vector embeddings are numerical representations of text that capture semantic meaning. Two sentences with the same meaning but different words will produce embedding vectors that are close together in high-dimensional space. This property makes embeddings ideal for similarity search, where the goal is to find documents that are conceptually related to a query rather than just matching keywords."
+          },
+          {
+            "id": "doc_07",
+            "score": 0.4893,
+            "text": "Cosine similarity measures the angle between two vectors rather than the distance between them. It is the preferred similarity metric for text embeddings because the magnitude of an embedding vector is not meaningful \u2014 only the direction matters. A cosine similarity of 1.0 means the two vectors point in exactly the same direction (identical meaning), while 0.0 means they are orthogonal (unrelated), and -1.0 means they are opposite in meaning."
+          }
+        ]
+      },
+      "strategy_b": {
+        "expanded_query": "cosine similarity euclidean distance dot product nearest neighbour",
+        "results": [
+          {
+            "id": "doc_07",
+            "score": 0.6172,
+            "text": "Cosine similarity measures the angle between two vectors rather than the distance between them. It is the preferred similarity metric for text embeddings because the magnitude of an embedding vector is not meaningful \u2014 only the direction matters. A cosine similarity of 1.0 means the two vectors point in exactly the same direction (identical meaning), while 0.0 means they are orthogonal (unrelated), and -1.0 means they are opposite in meaning."
+          },
+          {
+            "id": "doc_05",
+            "score": 0.4425,
+            "text": "The FAISS library (Facebook AI Similarity Search) provides efficient algorithms for searching large collections of dense vectors. It supports both exact and approximate nearest-neighbour search. The IndexFlatIP index performs exact inner product search, while IndexIVFFlat partitions the space into clusters for faster approximate search. For most RAG applications with under one million vectors, IndexFlatL2 or IndexFlatIP gives acceptable speed with perfect recall."
+          },
+          {
+            "id": "doc_02",
+            "score": 0.297,
+            "text": "Vector embeddings are numerical representations of text that capture semantic meaning. Two sentences with the same meaning but different words will produce embedding vectors that are close together in high-dimensional space. This property makes embeddings ideal for similarity search, where the goal is to find documents that are conceptually related to a query rather than just matching keywords."
+          }
+        ]
+      },
+      "overlap": [
+        "doc_02",
+        "doc_05",
+        "doc_07"
+      ]
+    },
+    {
+      "query": "How is data kept available if a node fails?",
+      "strategy_a": {
+        "results": [
+          {
+            "id": "doc_03",
+            "score": 0.5259,
+            "text": "Database replication ensures high availability by maintaining multiple copies of the data across different nodes. In a primary-replica setup, all writes go to the primary node and are then propagated to replicas asynchronously. During a failover event, one of the replicas is promoted to primary, minimising downtime and ensuring the system continues to serve read and write requests."
+          },
+          {
+            "id": "doc_08",
+            "score": 0.3064,
+            "text": "Message queues decouple producers and consumers in a distributed system. The producer places a message on the queue and continues without waiting for a response. The consumer reads from the queue at its own pace. This pattern smooths out traffic spikes: even if ten thousand events arrive in one second, the consumer processes them steadily without dropping any. RabbitMQ, Kafka, and Google Pub/Sub are common message queue systems."
+          },
+          {
+            "id": "doc_04",
+            "score": 0.2704,
+            "text": "Caching is a technique for storing frequently accessed data in fast memory so it does not need to be recomputed or fetched from a slow backend on every request. Common caching strategies include LRU (Least Recently Used) eviction, TTL-based expiry, and write-through caching. A well-tuned cache can reduce database load by over 80 percent and bring response times down from hundreds of milliseconds to single-digit milliseconds."
+          }
+        ]
+      },
+      "strategy_b": {
+        "expanded_query": "failover replication high availability backup recovery redundancy",
+        "results": [
+          {
+            "id": "doc_03",
+            "score": 0.6531,
+            "text": "Database replication ensures high availability by maintaining multiple copies of the data across different nodes. In a primary-replica setup, all writes go to the primary node and are then propagated to replicas asynchronously. During a failover event, one of the replicas is promoted to primary, minimising downtime and ensuring the system continues to serve read and write requests."
+          },
+          {
+            "id": "doc_01",
+            "score": 0.2333,
+            "text": "Peak load handling is managed through a combination of horizontal scaling and autoscaling policies. When incoming traffic exceeds a defined threshold, the orchestration layer automatically provisions additional compute instances. Load balancers distribute requests evenly across all active nodes, and a circuit breaker pattern prevents any single service from becoming overwhelmed."
+          },
+          {
+            "id": "doc_08",
+            "score": 0.205,
+            "text": "Message queues decouple producers and consumers in a distributed system. The producer places a message on the queue and continues without waiting for a response. The consumer reads from the queue at its own pace. This pattern smooths out traffic spikes: even if ten thousand events arrive in one second, the consumer processes them steadily without dropping any. RabbitMQ, Kafka, and Google Pub/Sub are common message queue systems."
+          }
+        ]
+      },
+      "overlap": [
+        "doc_03",
+        "doc_08"
+      ]
+    }
+  ]
+}
